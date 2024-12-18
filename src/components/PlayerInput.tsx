@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
+import OptionsInput from "./OptionsInput"; // Import component
 
 interface PlayerInputProps {
   playerName: string;
@@ -31,6 +32,7 @@ export default function PlayerInput({
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{playerName}</Text>
+      <OptionsInput score={score} handleScoreChange={handleScoreChange} />
       <TextInput
         style={styles.input}
         placeholder="Nhập điểm"
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     borderColor: "#ddd",
     borderRadius: 5,
     padding: 5,
-    width: 80,
+    width: 60,
     marginRight: 10,
     textAlign: "center",
   },

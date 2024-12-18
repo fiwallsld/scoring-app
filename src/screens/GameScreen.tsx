@@ -49,6 +49,7 @@ export default function GameScreen() {
               players,
               scores,
               detailedScores,
+              finish,
             }),
         },
       ]);
@@ -89,6 +90,7 @@ export default function GameScreen() {
               players,
               scores: updatedScores,
               detailedScores: updatedDetailedScores,
+              finish: true,
             }),
         },
       ]);
@@ -102,6 +104,7 @@ export default function GameScreen() {
               players,
               scores: updatedScores,
               detailedScores: updatedDetailedScores,
+              finish: true,
             }),
         },
       ]);
@@ -120,6 +123,7 @@ export default function GameScreen() {
       players,
       scores,
       detailedScores,
+      finish,
     });
   };
 

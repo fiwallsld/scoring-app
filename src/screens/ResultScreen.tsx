@@ -14,12 +14,14 @@ interface RouteParams {
   players: string[];
   scores: number[];
   detailedScores: number[][]; // Mảng điểm chi tiết cho từng ván
+  finish: boolean;
 }
 
 export default function ResultScreen() {
   const navigation = useNavigation();
   const route = useRoute();
-  const { players, scores, detailedScores } = route.params as RouteParams;
+  const { players, scores, detailedScores, finish } =
+    route.params as RouteParams;
 
   // Tạo bảng xếp hạng dựa trên điểm tổng
   const rankedPlayers = players
@@ -61,7 +63,7 @@ export default function ResultScreen() {
         {rankedPlayers.map((item, index) => (
           <Text key={index} style={styles.result}>
             {index + 1}. {item.name}: {item.score} điểm{" "}
-            {index == 0 ? ": Bạn là Nhà Vô Địch" : ""}
+            {index == 0 && finish ? ": Bạn là Nhà Vô Địch" : ""}
           </Text>
         ))}
       </View>
@@ -130,6 +132,11 @@ const styles = StyleSheet.create({
   result: {
     fontSize: 18,
     marginVertical: 5,
+  },
+  resultWin: {
+    fontSize: 18,
+    marginVertical: 5,
+    color: "red",
   },
   resultsContainer: {
     marginBottom: 10,
